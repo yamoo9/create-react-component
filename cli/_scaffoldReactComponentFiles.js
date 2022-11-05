@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const { resolve } = require("node:path");
 const removeCwdPath = require('./_removeCwdPath');
-const { createTag } = require('./_tags');
+const { createTag, editTag } = require('./_tags');
 
 module.exports = function scaffoldReactComponentFiles({
   location,
@@ -82,6 +82,20 @@ describe('${name} 컴포넌트', () => {
     );
 
     console.log(createTag(`${removeCwdPath(reactTestFilePath)}/ 파일 생성`));
+
+    // ----------------------------------------------------------------------------------------
+    // 컴포넌트 디렉토리 엔트리 파일 수정
+
+    let componentDirEntryPath = resolve(`${location}/index.js`);
+
+    let entryContents = fs.readFileSync(componentDirEntryPath, { encoding: 'utf-8' });
+
+    entryContents = entryContents.trim();
+
+    fs.writeFileSync(componentDirEntryPath, `${entryContents}\nexport * from './${name}';`);
+
+    console.log(editTag(`${removeCwdPath(componentDirEntryPath)}/ 파일 수정`));
+
   } else {
     console.error('[🚨 오류] --name=컴포넌트_이름 옵션 설정이 필요합니다.');
     process.exit();

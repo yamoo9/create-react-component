@@ -1,9 +1,7 @@
 {
-  "options": {
-    "location": "src/components",
-    "module": false,
-    "ext": ".jsx",
-    "styleExt": ".css",
-    "testSuffix": "test"
-  }
+  "location": "src/components",
+  "module": false,
+  "ext": ".jsx",
+  "styleExt": ".css",
+  "testSuffix": "test"
 }
