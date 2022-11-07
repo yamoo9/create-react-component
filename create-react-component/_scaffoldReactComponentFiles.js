@@ -57,7 +57,7 @@ export function ${name}({...restProps}) {
 
     fs.writeFileSync(
       resolve(reactStyleFilePath),
-      `.container {}`
+      module ? `.container {}` : `.${name} {}`
     );
 
     console.log(createTag(`${removeCwdPath(reactStyleFilePath)}/ 파일 생성`));

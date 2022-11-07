@@ -7,7 +7,7 @@
 React 프로젝트 루트 위치에서 다음 명령을 실행해 도구를 설치합니다.
 
 ```sh
-npx degit yamoo9/create-react-component tools
+npx degit yamoo9/create-react-component create-react-component
 ```
 
 ## 도구 명령어 구성
@@ -17,8 +17,8 @@ npx degit yamoo9/create-react-component tools
 ```json
 {
   "scripts": {
-    "rc:c": "node tools/cli/createRC.js",
-    "rc:d": "node tools/cli/deleteRC.js"
+    "rc": "node create-react-component create",
+    "rd": "node create-react-component delete"
   }
 }
 ```
@@ -29,7 +29,7 @@ React 컴포넌트 디렉토리를 생성합니다.
 
 ```sh
 # rc:c → react component : create
-npm run rc:c -- --name=컴포넌트_이름
+npm run rc -- 컴포넌트_이름
 ```
 
 ## React 컴포넌트 제거
@@ -38,7 +38,7 @@ React 컴포넌트 디렉토리를 제거합니다.
 
 ```sh
 # rc:d → react component : delete
-npm run rc:d -- --name=컴포넌트_이름
+npm run rd -- 컴포넌트_이름
 ```
 
 ## 구성 옵션
@@ -63,9 +63,9 @@ npm run rc:d -- --name=컴포넌트_이름
 | -------------- | --------------------------- | ---------------- | --------- |
 | `--name`       | 컴포넌트 이름               |                  | ✅        |
 | `--location`   | 컴포넌트 디렉토리 위치      | `src/components` | ❎        |
+| `--module`     | 스타일 파일 모듈 사용 여부  | `false`          | ❎        |
 | `--ext`        | 컴포넌트 파일 확장자        | `.jsx`           | ❎        |
 | `--styleExt`   | 컴포넌트 스타일 파일 확장자 | `.css`           | ❎        |
-| `--module`     | 스타일 파일 모듈 사용 여부  | `false`          | ❎        |
 | `--testSuffix` | 컴포넌트 테스트 파일 접미사 | `test`           | ❎        |
 
 <br />
