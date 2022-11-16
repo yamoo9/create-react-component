@@ -110,7 +110,7 @@ function configureReactStyleFile(dirPath, name, styleFileName, style) {
 
   fs.writeFileSync(
     resolve(reactStyleFilePath),
-    module ? `.${style.moduleClassName} {}` : `.${name} {}`
+    style.module ? `.${style.moduleClassName} {}` : `.${name} {}`
   );
 
   console.log(createTag(`${removeCwdPath(reactStyleFilePath)}/ 파일 생성`));
